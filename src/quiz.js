@@ -29,12 +29,6 @@ class Quiz {
             this.questions[i] = this.questions[j];
             this.questions[j] = temp;
         }
-        /*for (const question of this.questions) {
-            question.shuffleChoices()
-        }*/
-        /*this.questions.forEach(element => {
-            element.shuffleQuestions()
-        });*/
     }
 
     // 5. checkAnswer(answer)
@@ -47,6 +41,27 @@ class Quiz {
     // 6. hasEnded()
     hasEnded() {
         return this.currentQuestionIndex >=  this.questions.length
+    }
+
+    /**
+     * Filters the questions array with the given difficulty value.,
+     * 
+     * @param {*} difficulty : the difficulty that is filtered for.
+     */
+    filterQuestionsByDifficulty(difficulty) {
+        if (difficulty >= 1 && difficulty <= 3) {
+            this.questions = this.questions.filter((question) => question.difficulty === difficulty)
+        }
+    }
+
+    /**
+     * Returns the average of the difficulty of all questions in this quiz.
+     * 
+     * @returns the average of the difficulty of all questions in this quiz.
+     */
+    averageDifficulty() {
+        const difficultySum = this.questions.reduce((sum, question) => sum + question.difficulty, 0)
+        return difficultySum / this.questions.length
     }
 
 }
