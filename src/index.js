@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function createRadioButton(choice) {
     const radio = document.createElement("li");
     radio.innerHTML = `
-    <input type="radio" id="choice" name="choice" value="${choice}" checked />
+    <input type="radio" id="choice" name="choice" value="${choice}"/>
     <label for="${choice}">${choice}</label>
     `
     return radio
